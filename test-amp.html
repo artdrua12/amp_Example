@@ -150,13 +150,13 @@
             outline: none;
         }
         @media (max-width: 700px) {
-            .flowers p {
+            .content_window p {
                 font-size: 1.1rem;
             }
         }
 
         @media (min-width: 1200px) {
-            .flowers p {
+            .content_window p{
                 font-size: 30px;
             }
         }
@@ -164,25 +164,30 @@
         /*-------------fixed-height-container show ------------------*/
 
         .fixed-height-container {
-            width: 100vw;
-            height: 100vh;
-            padding: 3vw;
+            position: fixed;
+            top: 5vh;
+            width: calc(100vw-80px);
+            height: 90vh;
+            padding: 2vw 3vw 0 3vw;
             background-color: rgba(3, 3, 3, 0.8);
             z-index: 4;
-            overflow: auto;
+            overflow: scroll;
             font-size: 20px;
             color: white;
             font-size: 1.5rem;
+            justify-content: center;flex-wrap: wrap;
         }
 
         .fixed-height-container_button {
+            position: fixed;
+            top: 2vh;
             width: 70px;
             height: 40px;
             margin: 5px 5px 0 0;
             font-size: 1rem;
             border-radius: 5px;
-            border: 2px solid black;
-            background-color: white
+            border: 3px solid black;
+            background-color: white;
         }
 
 
@@ -336,7 +341,6 @@
 
 <body>
 
-
     <div class="header flex" style="flex-wrap: wrap;">
         <div class="header_links flex">
             <a class="header_lnk" href="">LinkA</a>
@@ -388,7 +392,7 @@
         </button>
     </div>
 
-    <div class="fixed-height-container flex" style="justify-content: center;flex-wrap: wrap;" hidden [hidden]="show">
+    <div class="fixed-height-container flex"  hidden [hidden]="show">
 
         <button class="fixed-height-container_button" on="tap:AMP.pushState({show: true })">X</button>
 
