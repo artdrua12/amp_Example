@@ -1,0 +1,485 @@
+<!doctype html>
+<html ⚡>
+
+<head>
+    <meta charset="utf-8">
+    <title>Flowers</title>
+    <!-- Ссылка на обычную страницу -->
+    <link rel="canonical" href="">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400" rel="stylesheet">
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <style amp-custom>
+        /*------------- fonts ----------------- */
+        @font-face {
+            font-family: 'Neris-Light';
+            src: url('assets/fonts/Neris-Light.otf');
+            font-display: fallback;
+        }
+
+        @font-face {
+            font-family: 'Neris-SemiBold';
+            src: url('assets/fonts/Neris-SemiBold.otf');
+            font-display: fallback;
+        }
+
+        .flex {
+            display: flex
+        }
+
+        /* ---------header--------- */
+
+        .header {
+            background-image: url("assets/img/1.jpg");
+            background-repeat: no-repeat;
+            background-position: 0% 0%;
+            background-size: cover;
+            height: 50vw;
+            padding: 3vw;
+            max-height: 750px;
+            min-height: 250px;
+            box-shadow: 0px 0px 80px 10px #765555 inset;
+        }
+
+        .header a {
+            font-family: Neris-SemiBold;
+            color: #6e0401;
+            text-decoration: none;
+            font-size: 2.4vw;
+            font-weight: bolder;
+            -webkit-text-stroke: 0.5px white;
+            -webkit-text-fill-color: #710404;
+        }
+
+        .header h2 {
+            font-family: Neris-Light;
+            font-size: 9vw;
+            -webkit-text-stroke: 1px #094a15;
+        }
+
+        @media (max-width: 700px) {
+            .header a {
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .header a {
+                font-size: 36px;
+            }
+        }
+
+        .header_links {
+            flex: 1 1 90%;
+            margin-top: 2vw;
+            padding: 0 2vw;
+            align-items: center;
+        }
+
+        .header_lnk {
+            margin-right: 10px;
+            background-color: rgba(243, 243, 243, 0.7);
+            padding: 2vw;
+        }
+
+        .header_content {
+            flex: 1 1 90%;
+            justify-content: space-around;
+            align-items: center;
+            height: 45vw;
+            margin-top: -12vw
+        }
+
+        .header_text {
+            color: white;
+            font-size: 3.2rem;
+        }
+
+        /* -----------flowers----------- */
+        .flowers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+            grid-gap: 2vw 4vw;
+            justify-content: center;
+        }
+        .flowers p{
+            font-size: 2.4vw;
+        }
+
+        .flowers_margin {
+            margin: 2vw 40px
+        }
+
+        .flowers_block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 700px) {
+            .flowers p {
+                font-size: 24px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .flowers p {
+                font-size: 36px;
+            }
+        }
+
+        /* --------------- content_window---------------*/
+        .content_window {
+            padding: 2vw 40px;
+            font-family: Neris-Light;
+            font-size: 1.5rem;
+            text-align: justify;
+        }
+        .content_window p{
+            font-size: 2.4vw;
+        }
+
+        .content_window_button {
+            width: 100px;
+            height: 40px;
+            border-radius: 40px;
+            background: linear-gradient(-90deg, #2b0000 0%, #bd2d2d 92%);
+            color: white;
+            outline: none;
+        }
+        @media (max-width: 700px) {
+            .flowers p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .flowers p {
+                font-size: 30px;
+            }
+        }
+
+        /*-------------fixed-height-container show ------------------*/
+
+        .fixed-height-container {
+            width: 100vw;
+            height: 100vh;
+            padding: 3vw;
+            background-color: rgba(3, 3, 3, 0.8);
+            z-index: 4;
+            overflow: auto;
+            font-size: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .fixed-height-container_button {
+            width: 70px;
+            height: 40px;
+            margin: 5px 5px 0 0;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 2px solid black;
+            background-color: white
+        }
+
+
+        /* ----------  form ------------*/
+
+        .grid-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(50px, 190px)) minmax(0px, 200px);
+            justify-content: center;
+        }
+
+        .grid-form_margin {
+            margin: 0px 0px 0px 40px;
+        }
+
+        .grid-form_send {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
+            grid-gap: 20px;
+            margin: 50px 0 50px 0;
+            grid-area: 1/1/2/3;
+            z-index: 2;
+        }
+
+        .grid-form_input {
+            width: 95%;
+            height: 40px;
+            outline: none;
+            font-size: 0.8em;
+            padding-left: 10px;
+            background-color: white;
+        }
+
+        .grid-form_h2 {
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            grid-column: 1/-1;
+        }
+
+        .grid-form_image {
+            background-image: url(assets/img/roza.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0% 100%;
+            grid-area: 1/2/2/4;
+        }
+
+        .grid-form_button {
+            width: 160px;
+            height: 40px;
+            border-radius: 40px;
+            background: linear-gradient(-90deg, #2b0000 0%, #bd2d2d 92%);
+            color: white;
+            justify-self: center;
+            grid-column: 1/-1;
+            outline: none;
+        }
+
+        /* ------ foter ------ */
+
+        .footer {
+            background-image: url(assets/img/6.png);
+            background-repeat: no-repeat;
+            background-position: 50% 0%;
+            background-size: cover;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 85vw;
+            max-height: 346px;
+        }
+
+        .footer h2 {
+            font-size: 20px;
+            text-align: left;
+            margin: 0px 0;
+        }
+
+        .footer p {
+            font-family: Neris-Light;
+            text-align: left;
+            font-size: 20px;
+            text-align: justify;
+        }
+
+        .footer a {
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .footer_text {
+            flex: 1 1 300px;
+            max-width: 365px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0px 40px 2px 40px;
+        }
+
+        .footer_text_form {
+            width: 100%;
+            border-radius: 35px;
+            border: 1px solid;
+            padding: 3px 5px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .footer_text_button {
+            background: #850901;
+            border-radius: 50px;
+            padding: 5px;
+            width: 22px;
+            height: 22px;
+            margin-right: -2px;
+        }
+
+        .footer_links {
+            display: flex;
+            flex: 1 1 300px;
+            max-width: 365px;
+            justify-content: center;
+            flex-direction: column;
+            padding: 3px 40px 7px 40px;
+        }
+
+        .footer_links_text {
+            justify-content: space-between;
+        }
+
+        .footer_links_links {
+            justify-content: space-between;
+            margin: 5px 0 10px 0;
+        }
+
+        .footer_links_icon {
+            background-color: #850901;
+            border-radius: 50px;
+            padding: 10px;
+            width: 22px;
+            height: 22px;
+        }
+
+        input {
+            width: 100%;
+            background-color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="header flex" style="flex-wrap: wrap;">
+        <div class="header_links flex">
+            <a class="header_lnk" href="">LinkA</a>
+            <a class="header_lnk" href="">LinkB</a>
+            <a class="header_lnk" href="">LinkC</a>
+            <a class="header_lnk" href="" style="margin-left:auto">Text</a>
+        </div>
+        <div class="header_content flex">
+            <h2 class="header_text">Flowers</h2>
+            </amp-img>
+        </div>
+    </div>
+
+    <div class="flowers flowers_margin">
+
+        <div class="flowers_block">
+            <amp-img src="assets/img/3.jpg" width="150" height="150"></amp-img>
+            <p>flower 1</p>
+        </div>
+
+        <div class="flowers_block">
+            <amp-img src="assets/img/2.png" width="150" height="150"></amp-img>
+            <p>flower 2</p>
+        </div>
+
+        <div class="flowers_block">
+            <amp-img src="assets/img/2.png" width="150" height="150"></amp-img>
+            <p>flower 3</p>
+        </div>
+
+        <div class="flowers_block">
+            <amp-img src="assets/img/3.jpg" width="150" height="150"></amp-img>
+            <p>flower 4</p>
+        </div>
+    </div>
+
+    <div class="content_window">
+        <h3>Всплывающее окно</h3>
+        <p>Для удачного разведения имеет значение почва, в которой находится цветок.
+            Предпочтительнее рыхлые и воздухопроницаемые почвосмеси. Такой грунт хорошо впитывает
+            и сохраняет влагу, обеспечивает доступ кислорода к корням.
+            Пересаживать цветы и полностью менять почвосмесь необходимо раз в два года.
+            Грунт в горшках быстро истощается, и растение страдает от нехватки питания.
+            Взрослые пальмы и крупные экземпляры пересаживают крайне редко, но ежегодно заменяют
+            верхний слой почвы.
+            Никогда не оставляйте комнатные цветы в той почве, в которой они продавались.
+            Она непригодна для выращивания, а служит лишь для транспортировки.</p>
+        <button class="content_window_button" on="tap:AMP.pushState({ show: false})"> Подробнее
+        </button>
+    </div>
+
+    <div class="fixed-height-container flex" style="justify-content: center;flex-wrap: wrap;" hidden [hidden]="show">
+
+        <button class="fixed-height-container_button" on="tap:AMP.pushState({show: true })">X</button>
+
+        <p>Режим полива подбирают индивидуально для каждого экземпляра. Зимой частоту снижают,
+            если растение находится в
+            прохладе. В комнате с центральным отоплением цветы поливают и опрыскивают как обычно.
+            Регулярно осматривайте цветы. Их внешний вид должен быть здоровым, а листья зелеными
+            и блестящими. Любые
+            пятна, недоразвитые бутоны, сухие кончики и прочее должны насторожить.
+            Выращивание комнатных цветов – увлекательное и несложное занятие. Посмотрите
+            обучающее видео о том, как
+            вырастить домашние цветы, и все обязательно получится.
+            Вырастить красивый цветок — это просто или сложно?
+            У каждого свой ответ, но все, наверное, согласятся: красивые цветы растут у тех, кто не только их любит, но
+            и знает, как правильно выращивать. Ведь всякий молоденький росток нуждается в особых условиях, к каждому
+            нужен свой подход: у одного необходимо вовремя прищипнуть побеги, у другого — подвязать; один боится
+            холодов, а другому некомфортно на солнцепеке…
+
+            Выращивание цветов — это и наука, и искусство, здесь не обойтись ни без точных знаний,
+            ни без интуиции и творческого подхода. И у многих наших читателей все это есть!
+            Своими секретами выращивания цветов на даче они делятся в публикациях, которые мы объединили в этом разделе.
+            Вы можете отыскать здесь
+            именно то, что нужно и интересно вам, а если вдруг не нашли — непременно задайте вопрос!
+
+            В садах и цветниках наших дачников встречаются самые разные растения, у каждого есть с
+            обственный уникальный опыт их выращивания, свои находки, идеи, свои успехи и неудачи.
+            И у бывалого цветовода, и у новичка, создавшего первую клумбу на даче, есть о чем рассказать,
+            чем поделиться! Напишите о том, как вы выращиваете свои любимые цветы, какие их
+            секреты знаете — пусть и у других в саду появятся такие же красавцы!
+
+        </p>
+    </div>
+
+    <div class="grid-form grid-form_margin">
+        <form class="grid-form_send " action-xhr="../assets/img/icons/linkedin-box.png" method="POST" target="_top">
+            <h2 class="grid-form_h2">Введите данные </h2>
+            <input class="grid-form_input" type="text" name="name" placeholder="Name..." required>
+            <input class="grid-form_input" type="email" name="email" placeholder="Email..." required>
+            <input class="grid-form_input" type="phone" name="phone" placeholder="Phone..." required>
+            <input type="submit" class="grid-form_button" value="НАЧАТЬ!">
+            <div submit-error>
+                Error!
+            </div>
+        </form>
+        <div class="grid-form_image"></div>
+    </div>
+
+    <div class="footer flex">
+        <div class="footer_text flex">
+            <h2>ПОДПИШИТЕСЬ НА НАШИ НОВОСТИ</h2>
+            <p>Хотите получать самые свежие новости?</p>
+            <form class="footer_text_form" method="post" action-xhr="../assets/img/icons/linkedin-box.png"
+                target="_top">
+                <input type="email" placeholder="Enter Email" style="margin-left: 12px; border: none; outline:none;">
+                <a href="" class="footer_text_button">
+                    <amp-img src="assets/icon/telegram.png" width="22" height="22"></amp-img>
+                </a>
+            </form>
+        </div>
+        <div class="footer_links">
+            <div class="footer_links_text flex">
+                <a href="">link1</a>
+                <a href="">link2</a>
+                <a href="">link3</a>
+                <a href="">link4</a>
+            </div>
+
+            <div class="flex footer_links_links">
+                <a class="footer_links_icon" href="">
+                    <amp-img src="assets/icon/facebook.png" width="22" height="22"></amp-img>
+                </a>
+
+                <a class="footer_links_icon" href="">
+                    <amp-img src="assets/icon/google-plus.png" width="22" height="22"></amp-img>
+                </a>
+
+                <a class="footer_links_icon" href="">
+                    <amp-img src="assets/icon/instagram.png" width="22" height="22"></amp-img>
+                </a>
+
+                <a class="footer_links_icon" href="">
+                    <amp-img src="assets/icon/github-circle.png" width="22" height="22"></amp-img>
+                </a>
+
+                <a class="footer_links_icon" href="">
+                    <amp-img src="assets/icon/linkedinWhite.png" width="22" height="22"></amp-img>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
